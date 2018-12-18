@@ -1,30 +1,5 @@
 # -*- coding: utf-8 -*
-"""
-    if do seq2seq, most common must minus 1 to reserve 1 slot for UNK and (padding maybe)
-todo: long tail in output distribution, bucket rare class into 1
-todo: build prefix dictionary for jieba
-todo: change float to int to observe training variance; try sparse instead of np
-bug: name build_dict name conflict because write 2 function with same name
-mark: General procedure
-    ... creating clean input (filter,stopwords)
-    ... parse(chinese only)
-    ... ngramize(unigram, bigram...)(optional)
-    ... build vocabs set from input sequences of text
-    ... build word2idx, idx2word dictionary
-    ... vectorize/tokenize(sequence); bow(ngrams)
-    ... pad(sequence)
 
-    theoretically, we should do train/test split prior to preprocessing to avoid processing step utilize knowledge
-    of test data(particularly in real time system which assuming distribution consistency)
-
-    side effect of save x,y before train validation split: seed is random, so validation set is arbitrary and not fair
-    for hyperparameter tuning
-
-    when streaming new data for testing require process prior to previous state/config, because the preprocessing
-    class assume one way batch processing (summary from one-time batch), unless doing excessive cache of previous
-    state(e.g. label_to_idx dictionary, label set, idx to word dict...)
-
-"""
 from load_data import load_data
 import collections
 import jieba
