@@ -210,7 +210,7 @@ def train_val_split(x,y,split_ratio,shuffle_seed=22):
     return x_train, y_train, x_val, y_val
 
 def save(x_save,y_save, path):
-    # not generalize to be modified
+    # not generalize, to be modified
     if not os.path.exists(path):
         os.mkdir(path)
         np.save('{}/x'.format(path), x_save)
@@ -242,7 +242,7 @@ if __name__ == '__main__':
     texts,labels = load_data(datapath=DATAPATH, filename=DATAFILE, keep_only_single_output=True)
 
 
-    preprocess = Preprocess(texts,labels,most_common=9000) # save time for debugs
+    preprocess = Preprocess(texts,labels,most_common=9000)
     x, y = preprocess.get_xy()
 
     save(x,y,path='np_processed_data') # save x and y
