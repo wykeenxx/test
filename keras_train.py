@@ -34,7 +34,7 @@ if __name__ == '__main__':
 
     x,y = load(path='np_processed_data')
 
-    x_train, y_train, x_val, y_val = train_val_split(x, y, 0.8, shuffle_seed=1322) # baseline seed: 22
+    x_train, y_train, x_val, y_val = train_val_split(x, y, 0.8, shuffle_seed=22) # baseline seed: 22
 
     print('verify seed by logging y_val[34]class:{} '.format(np.argmax(y_val[34])))  # 907
     print x_train.shape
